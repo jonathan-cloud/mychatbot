@@ -4,7 +4,7 @@ This is the template server side for ChatBot
 from bottle import route, run, template, static_file, request
 import random
 import json
-import boto1
+
 import boto_words
 
 
@@ -43,6 +43,7 @@ def chat():
 
     if user_message == "info":
         msg = "Ask if im afraid, about my dog, greetings, moneystuff, and if i like stuff"
+        animation = "inlove"
     if isAfraid:
         msg = "im scaweeeeedd doe"
         animation = "afraid"
@@ -78,7 +79,7 @@ def chat():
         if greeting in user_message:
             username = user_message[user_message.index(
                 greeting)+len(greeting):]
-            msg = "Hi,"+username + " talk to me about stuff or type info"
+            msg = "Hi, "+username + " talk to me about stuff or type info"
 
     likes_phrase = ['do you like ', 'do you love ']
 
@@ -87,7 +88,7 @@ def chat():
             liking = user_message[user_message.index(
                 likes)+len(likes):]
             msg = "I love "+liking + "!"
-
+            animation = "giggling"
     return json.dumps({"animation": animation, "msg": msg})
 
 

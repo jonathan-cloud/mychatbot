@@ -2,9 +2,9 @@ from bottle import request
 import random
 
 names = ['boto']
-afraids = ['baby', 'scardy cat', 'scared']
+afraids = ['baby', 'scardy cat', 'scared', 'afraid']
 greetings = ['hi', 'how are you' 'hello',
-             'hey', 'sup', 'whatsup', 'what it do']
+             'hey', 'sup', 'whats up', 'what it do']
 moneyWords = ['paper', 'money', '$', 'currency', 'chedder']
 curses = ['fuck', 'bitch', 'shit', 'cunt', 'assface']
 questions = ['do', 'how', 'what', 'am', 'are']
