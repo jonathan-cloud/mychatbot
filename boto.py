@@ -16,14 +16,13 @@ def index():
 @route("/chat", method='POST')
 def chat():
     user_message = request.POST.get('msg').lower()
-    
+
     isBored = False
     isAfraid = False
     money = False
     greet = False
     cursed = False
     isName = False
-    # isQuestion= False
 
     msg = "Hey im boto type info to ask me about commands"
     animation = None
@@ -32,7 +31,6 @@ def chat():
     msg = ret[0]
     animation = ret[1]
 
-    
     money = boto_words.isMoney(user_message)
 
     isAfraid = boto_words.afraid(user_message)
@@ -43,12 +41,11 @@ def chat():
 
     isName = boto_words.naming(user_message)
 
-
     if user_message == "info":
         msg = "Ask if im afraid, about my dog, greetings, moneystuff, and if i like stuff"
     if isAfraid:
         msg = "im scaweeeeedd doe"
-        animation = "afraid" 
+        animation = "afraid"
     if greet:
         msg = "Heya friend try typing info"
         animation = random.choice(boto_words.greet_animation)
@@ -74,7 +71,6 @@ def chat():
     if msg == "":
         msg = "enter your name with 'my name is' to see what we can talk about!"
         animation = "dancing"
-        
 
     name_greetings = ['my name is ', "i'm ", "i am "]
 
@@ -92,7 +88,7 @@ def chat():
                 likes)+len(likes):]
             msg = "I love "+liking + "!"
 
-    return json.dumps({"animation": animation, "msg": msg })
+    return json.dumps({"animation": animation, "msg": msg})
 
 
 @route("/test", method='POST')
